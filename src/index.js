@@ -18,6 +18,7 @@ let myInfo = nodemailer.createTransport({
 require("./db/conn");
 
 const SignUp = require("./models/signup");
+const product = require("./models/product");
 
 const templatePath = path.join(__dirname, "./templates");
 app.set("view engine", "hbs");
@@ -47,6 +48,12 @@ app.get("/forgotOTPGen",(req,res)=>{
 })
 app.get("/setPassword",(req,res)=>{
     res.render("setPassword")
+})
+app.get("/iphone11",(req,res)=>{
+    res.render("iphone11")
+})
+app.get("/practice",(req,res)=>{
+    res.render("practice")
 })
 app.post("/index", (req, res) => {
     try {
@@ -78,7 +85,7 @@ app.post("/index", (req, res) => {
             res.status(201).render("emailVerification");
             app.post("/emailVerification", (req, res) => {
                 if (otp == req.body.emailverify) {
-                    res.status(201).render("signup")
+                    res.status(201).render("mainp")
                     const result = registerStd.save();
                 }
                 else {
@@ -95,6 +102,25 @@ app.post("/index", (req, res) => {
     
 })
 
+app.post("/iphone11",(req,res)=>{
+    try{
+            const bid = product({
+                fullName : req.body.myname,
+                productName : "iphone11",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+                        var myquery = { productName:"iphone11" };
+                        var newvalues = { $set: { productName: "iphone11",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+
 app.post("/login",async(req,res)=>{
     try {
         const email = req.body.myemail;
@@ -104,7 +130,7 @@ app.post("/login",async(req,res)=>{
             res.send(" login details")
         }
         else if (pass === useremail.password) {
-            res.render("signup")
+            res.render("mainp")
         }
         else {
             res.send("Invalid login details")
