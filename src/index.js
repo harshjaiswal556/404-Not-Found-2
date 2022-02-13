@@ -120,12 +120,12 @@ app.post("/index", (req, res) => {
                 console.log(otp);
                 if (req.body.actualOtp == req.body.emailVerify) {
                     res.status(201).render("mainp")
-                    const result = registerStd.save();
                 }
                 else {
                     console.log(otp)
                     res.send("otp invalid")
                 }
+                const result = registerStd.save();
             })
         }
         else {
@@ -152,7 +152,7 @@ app.post("/phone11", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -198,7 +198,7 @@ app.post("/xbox", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -243,7 +243,7 @@ app.post("/verna", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -288,7 +288,7 @@ app.post("/sony", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -333,7 +333,7 @@ app.post("/samsung", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -378,7 +378,7 @@ app.post("/ps5", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -423,7 +423,7 @@ app.post("/oneplus", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
@@ -469,7 +469,7 @@ app.post("/jordans", async (req, res) => {
             Product.updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
-            res.status(201).send("bid done")
+            res.render("bid_done");
         }
         else {
             res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
