@@ -66,6 +66,7 @@ app.post("/index", (req, res) => {
                 confirmpass: req.body.confirmPass
             })
             let otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
+            otp = 1672
             let mailOptions = {
                 from: "hsjaiswal3110@gmail.com",
                 to: req.body.email,
