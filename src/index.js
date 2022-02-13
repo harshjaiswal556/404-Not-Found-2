@@ -18,7 +18,7 @@ let myInfo = nodemailer.createTransport({
 require("./db/conn");
 
 const SignUp = require("./models/signup");
-const product = require("./models/product");
+const Product = require("./models/product");
 
 const templatePath = path.join(__dirname, "./templates");
 app.set("view engine", "hbs");
@@ -49,8 +49,26 @@ app.get("/setPassword",(req,res)=>{
 app.get("/phone11",(req,res)=>{
     res.render("phone11")
 })
-app.get("/practice",(req,res)=>{
-    res.render("practice")
+app.get("/xbox",(req,res)=>{
+    res.render("xbox")
+})
+app.get("/verna",(req,res)=>{
+    res.render("verna")
+})
+app.get("/sony",(req,res)=>{
+    res.render("sony")
+})
+app.get("/samsung",(req,res)=>{
+    res.render("samsung")
+})
+app.get("/ps5",(req,res)=>{
+    res.render("ps5")
+})
+app.get("/oneplus",(req,res)=>{
+    res.render("oneplus")
+})
+app.get("/jordans",(req,res)=>{
+    res.render("jordans")
 })
 app.post("/index", (req, res) => {
     try {
@@ -66,7 +84,6 @@ app.post("/index", (req, res) => {
                 confirmpass: req.body.confirmPass
             })
             let otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
-            otp = 1672
             let mailOptions = {
                 from: "hsjaiswal3110@gmail.com",
                 to: req.body.email,
@@ -102,20 +119,195 @@ app.post("/index", (req, res) => {
     
 })
 
-app.post("/phone11",(req,res)=>{
+app.post("/phone11",async(req,res)=>{
     try{
-            const bid = product({
+            const bid = Product({
                 fullName : req.body.myname,
                 productName : "iphone11",
                 mobile : req.body.mynumber,
                 price : req.body.myprice
             })
+            const prodName =await Product.findOne({productName : "iphone11"})
+            if(prodName.price < req.body.myprice){
                         var myquery = { productName:"iphone11" };
                         var newvalues = { $set: { productName: "iphone11",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
-                        product.updateOne(myquery, newvalues, function (err, res) {
+                        Product.updateOne(myquery, newvalues, function (err, res) {
                             if (err) throw err;
                         });
             res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/xbox",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "xbox",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "xbox"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"xbox" };
+                        var newvalues = { $set: { productName: "xbox",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/verna",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "verna",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "verna"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"verna" };
+                        var newvalues = { $set: { productName: "verna",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/sony",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "sony",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "sony"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"sony" };
+                        var newvalues = { $set: { productName: "sony",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/samsung",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "samsung",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "samsung"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"samsung" };
+                        var newvalues = { $set: { productName: "samsung",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/ps5",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "ps5",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "ps5"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"ps5" };
+                        var newvalues = { $set: { productName: "ps5",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/oneplus",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "oneplus",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            const prodName =await Product.findOne({productName : "oneplus"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"oneplus" };
+                        var newvalues = { $set: { productName: "oneplus",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
+    }catch(err){
+        res.status(400).send("err");
+    }
+})
+app.post("/jordans",async(req,res)=>{
+    try{
+            const bid = Product({
+                fullName : req.body.myname,
+                productName : "jordans",
+                mobile : req.body.mynumber,
+                price : req.body.myprice
+            })
+            
+            const prodName =await Product.findOne({productName : "jordans"})
+            if(prodName.price < req.body.myprice){
+                        var myquery = { productName:"jordans" };
+                        var newvalues = { $set: { productName: "jordans",fullName: req.body.myname,mobile: req.body.mynumber ,price: req.body.myprice } };
+                        Product.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+            res.status(201).send("bid done")
+                    }
+                    else{
+                        res.status("201").send(`Highest bid is ${prodName.price}. Please enter price higher than this.`)
+                    }
     }catch(err){
         res.status(400).send("err");
     }
