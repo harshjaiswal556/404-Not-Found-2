@@ -149,7 +149,8 @@ app.post("/forgot", async (req, res) => {
             res.send("Email does not exist");
         }
         else {
-            const otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
+            let otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
+            otp=7742
             let mailOptions = {
                 from: "hsjaiswal3110@gmail.com",
                 to: req.body.forgotEmail,
