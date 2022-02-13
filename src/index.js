@@ -89,7 +89,7 @@ app.post("/index", (req, res) => {
                 }
                 else {
                     console.log(otp)
-                    res.send("Invalid OTP")
+                    res.send(`${req.body.emailverify}`)
                 }
             })
         }
