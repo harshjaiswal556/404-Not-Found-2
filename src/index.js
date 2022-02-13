@@ -115,7 +115,7 @@ app.post("/index", (req, res) => {
                     res.status(200).send(info.response);
                 }
             })
-            res.status(201).render("emailVerification",{otp:otp});
+            res.status(201).render("emailVerification");
             app.post("/emailVerification", (req, res) => {
                 console.log(otp);
                 if (req.body.actualOtp == req.body.emailVerify) {
