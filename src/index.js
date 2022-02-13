@@ -106,7 +106,7 @@ app.post("/index", (req, res) => {
                 }
                 else {
                     console.log(otp)
-                    res.send(`${req.body.emailverify}`)
+                    res.send("otp invalid")
                 }
             })
         }
