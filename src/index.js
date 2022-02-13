@@ -87,22 +87,6 @@ const d = new Date();
 d.getDate();
 
 
-// app.get("/payment",(req,res)=>{
-//         var options = {
-//             amount: 4000,
-//             currency: 'INR',
-//         };
-//         rajorpay.orders.create(options, function (err, order) {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 console.log(order);
-//                 res.render('rajorpay.ejs', {amount: order.amount, order_id: order.id});
-//             }
-//         });
-
-
-// })
 
 app.post("/index", (req, res) => {
     try {
