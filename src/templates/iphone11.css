@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(57, 5, 86, 1) 17%,
+    rgba(95, 9, 121, 1) 38%,
+    rgba(42, 122, 195, 1) 64%,
+    rgba(17, 176, 231, 1) 89%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "cover content";
+}
+
+.cover {
+  grid-area: cover;
+  height: 80vh;
+  background-image: url("iphone11.jpg");
+  background-size: cover;
+  background-position: center center;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: -2px 0px 33px 0px rgba(0, 0, 0, 0.75);
+}
+.content {
+  grid-area: content;
+  background: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: -2px 0px 33px 0px rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+.nav {
+  margin: 0px 20px;
+  height: 35px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: gray;
+}
+.content-body {
+  display: flex;
+  flex-direction: row;
+}
+.pages {
+  width: 20%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: gray;
+  position: relative;
+  transform: translateY(38px);
+}
+.pages span {
+  margin-top: 15px;
+}
+.black-label {
+  width: 90%;
+}
+.black-label span {
+  font-family: "Rowdies", cursive;
+}
+.black-label p {
+  font-size: 15px;
+  color: rgb(93, 92, 92);
+  width: 80%;
+}
+.title {
+  font-size: 44px;
+}
+.prix {
+  margin: 50px 0px;
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  border-left: 4px solid rgb(255, 177, 33);
+}
+.prix span {
+  padding-left: 10px;
+  font-size: 30px;
+}
+.crt {
+  color: gray;
+  left: 2px;
+  border-bottom: 1px solid rgb(177, 177, 177);
+}
+.active {
+  color: black;
+  position: relative;
+  transform: translateX(60px);
+}
+.active::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 67px;
+  right: 117%;
+  top: 45%;
+  background-color: #555;
+  height: 0.2em;
+  min-height: 1px;
+  z-index: 1;
+}
+
+.wrapper {
+  height: 60px;
+  width: 315px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+.wrapper span {
+  width: 100%;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 60;
+  cursor: pointer;
+  user-select: none;
+}
+.wrapper span.num {
+  font-size: 40px;
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+.input-groups {
+  margin-right: 50px;
+  margin-bottom: 50px;
+  width: 70%;
+}
+.btn {
+  margin: 10px;
+  background: rgb(28, 0, 36);
+  background: linear-gradient(
+    37deg,
+    rgba(28, 0, 36, 0.8606793059020483) 0%,
+    rgba(57, 5, 86, 1) 31%,
+    rgba(42, 122, 195, 0.8522759445575105) 73%,
+    rgba(17, 176, 231, 0.8774860285911239) 96%,
+    rgba(0, 212, 255, 0.8270658605238971) 100%
+  );
+  box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+.btn span{
+    color: #efefef;
+}

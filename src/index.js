@@ -29,13 +29,10 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.get("/",(req,res)=>{
-    res.send("hello")
+    res.render("homePage")
 })
 app.get("/index",(req,res)=>{
     res.render("index")
-})
-app.get("/login",(req,res)=>{
-    res.render("login")
 })
 app.get("/emailVerification", (req, res) => {
     res.render("emailVerification")
@@ -49,8 +46,8 @@ app.get("/forgotOTPGen",(req,res)=>{
 app.get("/setPassword",(req,res)=>{
     res.render("setPassword")
 })
-app.get("/iphone11",(req,res)=>{
-    res.render("iphone11")
+app.get("/phone11",(req,res)=>{
+    res.render("phone11")
 })
 app.get("/practice",(req,res)=>{
     res.render("practice")
@@ -102,7 +99,7 @@ app.post("/index", (req, res) => {
     
 })
 
-app.post("/iphone11",(req,res)=>{
+app.post("/phone11",(req,res)=>{
     try{
             const bid = product({
                 fullName : req.body.myname,
