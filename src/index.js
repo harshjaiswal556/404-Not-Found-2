@@ -65,7 +65,7 @@ app.post("/index", (req, res) => {
                 password: req.body.password,
                 confirmpass: req.body.confirmPass
             })
-            const otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
+            let otp = Math.round(1000 + (9999 - 1000) * (Math.random()));
             let mailOptions = {
                 from: "hsjaiswal3110@gmail.com",
                 to: req.body.email,
@@ -81,11 +81,13 @@ app.post("/index", (req, res) => {
             })
             res.status(201).render("emailVerification");
             app.post("/emailVerification", (req, res) => {
+                console.log(otp);
                 if (otp == req.body.emailverify) {
                     res.status(201).render("mainp")
                     const result = registerStd.save();
                 }
                 else {
+                    console.log(otp)
                     res.send("Invalid OTP")
                 }
             })
