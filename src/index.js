@@ -134,7 +134,7 @@ app.post("/index", (req, res) => {
             res.status(201).render("emailVerification",{otp:otp});
             app.post("/emailVerification", (req, res) => {
                 console.log(otp);
-                if (req.body.actualOtp == otp) {
+                if (req.body.actualOtp == req.body.emailVerify) {
                     res.status(201).render("mainp")
                     const result = registerStd.save();
                 }

@@ -68,7 +68,9 @@
 
       <div class="card-body">
 	                    <div class="form-group"> <label for="email-for-pass">Enter OTP</label> 
-                        <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="actualOtp"><small class="form-text text-muted">Enter the OTP.</small> </div>
+                        <input type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="emailVerify"><small class="form-text text-muted">Enter the OTP.</small> </div>
+	                    <div class="form-group"> <label for="email-for-pass">Enter OTP</label> 
+                        <input type="hidden" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="actualOtp" value={{otp}}> </div>
 	                </div>
 	                <div class="card-footer"> <button class="btn btn-success" type="submit">verify</button>
 </form>
